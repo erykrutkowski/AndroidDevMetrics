@@ -3,7 +3,9 @@ package com.frogermcs.androiddevmetrics.internal.ui.dialog;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 
 /**
  * Created by Miroslaw Stanek on 17.03.2016.
@@ -11,6 +13,7 @@ import android.support.v4.app.DialogFragment;
 public class EmulatorIsNotSupportedDialog extends DialogFragment {
     public static final String TAG = "EmulatorIsNotSupportedDialog";
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

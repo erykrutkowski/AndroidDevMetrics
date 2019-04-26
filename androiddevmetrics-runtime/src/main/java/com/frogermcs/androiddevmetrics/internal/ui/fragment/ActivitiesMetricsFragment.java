@@ -3,14 +3,16 @@ package com.frogermcs.androiddevmetrics.internal.ui.fragment;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import com.frogermcs.androiddevmetrics.R;
 import com.frogermcs.androiddevmetrics.aspect.ActivityLifecycleAnalyzer;
@@ -32,15 +34,15 @@ public class ActivitiesMetricsFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.adm_fragment_activities_metrics, container, false);
-        lvActivitiesMetrics = (ExpandableListView) view.findViewById(R.id.lvActivitiesMetrics);
-        tvEmpty = (TextView) view.findViewById(R.id.tvEmpty);
+        lvActivitiesMetrics = view.findViewById(R.id.lvActivitiesMetrics);
+        tvEmpty = view.findViewById(R.id.tvEmpty);
         return view;
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ExpandableActivitiesMetricsListAdapter adapter = new ExpandableActivitiesMetricsListAdapter(this);
         lvActivitiesMetrics.setAdapter(adapter);

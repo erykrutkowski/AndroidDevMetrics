@@ -13,7 +13,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'org.aspectj:aspectjtools:1.8.8'
+        classpath 'org.aspectj:aspectjtools:1.9.3'
     }
 }
 
@@ -55,7 +55,7 @@ android.libraryVariants.all { variant ->
                          "-d", javaCompile.destinationDir.toString(),
                          "-classpath", javaCompile.classpath.asPath]
 
-        MessageHandler handler = new MessageHandler(true);
+        MessageHandler handler = new MessageHandler(true)
         new Main().run(args, handler)
 
         def log = project.logger
@@ -65,14 +65,14 @@ android.libraryVariants.all { variant ->
                 case IMessage.ERROR:
                 case IMessage.FAIL:
                     log.error message.message, message.thrown
-                    break;
+                    break
                 case IMessage.WARNING:
                 case IMessage.INFO:
                     log.info message.message, message.thrown
-                    break;
+                    break
                 case IMessage.DEBUG:
                     log.debug message.message, message.thrown
-                    break;
+                    break
             }
         }
     }

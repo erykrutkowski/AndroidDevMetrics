@@ -34,10 +34,11 @@ public class MethodsTracingFinishedDialog extends DialogFragment {
 
         String cmd = "<b><i>$ adb pull %s</i></b><br/>";
         formattedCommands = "";
-
+        StringBuilder sb = new StringBuilder(formattedCommands);
         for (String method : items) {
-            formattedCommands += String.format(Locale.ENGLISH, cmd, method);
+            sb.append(String.format(Locale.ENGLISH, cmd, method));
         }
+        formattedCommands = sb.toString();
     }
 
     @Override

@@ -116,8 +116,8 @@ public class ExpandableMetricsListAdapter extends BaseExpandableListAdapter {
 
         public HeaderViewHolder(View view) {
             this.root = view;
-            tvClassName = (TextView) view.findViewById(R.id.tvClassName);
-            tvInitTime = (TextView) view.findViewById(R.id.tvInitTime);
+            tvClassName = view.findViewById(R.id.tvClassName);
+            tvInitTime = view.findViewById(R.id.tvInitTime);
         }
 
         public void bindView(MetricDescription metricDescription) {
@@ -149,7 +149,7 @@ public class ExpandableMetricsListAdapter extends BaseExpandableListAdapter {
         TextView tvTreeDescription;
 
         public DescriptionViewHolder(View view) {
-            tvTreeDescription = (TextView) view.findViewById(R.id.tvTreeDescription);
+            tvTreeDescription = view.findViewById(R.id.tvTreeDescription);
         }
 
         public void bindView(MetricDescriptionTreeItem metricDescription) {

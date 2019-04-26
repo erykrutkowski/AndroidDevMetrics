@@ -2,8 +2,6 @@ package com.frogermcs.androiddevmetrics.aspect;
 
 import android.app.Activity;
 import android.os.Debug;
-import android.os.Environment;
-import android.support.v4.app.FragmentActivity;
 
 import com.frogermcs.androiddevmetrics.internal.MethodsTracingManager;
 import com.frogermcs.androiddevmetrics.internal.metrics.ActivityLifecycleMetrics;
@@ -53,20 +51,25 @@ public class ActivityLifecycleAnalyzer {
         String methodName = signature.getMethod().getName();
 
         final Object result;
-        if (METHOD_ON_RESUME.equals(methodName)) {
-            ActivityLifecycleMetrics.getInstance().logPreOnResume((Activity) joinPoint.getTarget());
-            result = executeWithTracingIfEnabled(joinPoint, methodName);
-            ActivityLifecycleMetrics.getInstance().logPostOnResume((Activity) joinPoint.getTarget());
-        } else if (METHOD_ON_START.equals(methodName)) {
-            ActivityLifecycleMetrics.getInstance().logPreOnStart((Activity) joinPoint.getTarget());
-            result = executeWithTracingIfEnabled(joinPoint, methodName);
-            ActivityLifecycleMetrics.getInstance().logPostOnStart((Activity) joinPoint.getTarget());
-        } else if (METHOD_ON_CREATE.equals(methodName)) {
-            ActivityLifecycleMetrics.getInstance().logPreOnCreate((Activity) joinPoint.getTarget());
-            result = executeWithTracingIfEnabled(joinPoint, methodName);
-            ActivityLifecycleMetrics.getInstance().logPostOnCreate((Activity) joinPoint.getTarget());
-        } else {
-            result = null;
+        switch (methodName) {
+            case METHOD_ON_RESUME:
+                ActivityLifecycleMetrics.getInstance().logPreOnResume((Activity) joinPoint.getTarget());
+                result = executeWithTracingIfEnabled(joinPoint, methodName);
+                ActivityLifecycleMetrics.getInstance().logPostOnResume((Activity) joinPoint.getTarget());
+                break;
+            case METHOD_ON_START:
+                ActivityLifecycleMetrics.getInstance().logPreOnStart((Activity) joinPoint.getTarget());
+                result = executeWithTracingIfEnabled(joinPoint, methodName);
+                ActivityLifecycleMetrics.getInstance().logPostOnStart((Activity) joinPoint.getTarget());
+                break;
+            case METHOD_ON_CREATE:
+                ActivityLifecycleMetrics.getInstance().logPreOnCreate((Activity) joinPoint.getTarget());
+                result = executeWithTracingIfEnabled(joinPoint, methodName);
+                ActivityLifecycleMetrics.getInstance().logPostOnCreate((Activity) joinPoint.getTarget());
+                break;
+            default:
+                result = null;
+                break;
         }
 
         return result;

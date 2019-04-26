@@ -1,9 +1,9 @@
 package com.frogermcs.androiddevmetrics.internal.metrics;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.v7.view.WindowCallbackWrapper;
 import android.view.Window;
+
+import androidx.annotation.NonNull;
 
 import com.frogermcs.androiddevmetrics.internal.ActivityMetricDescription;
 import com.frogermcs.androiddevmetrics.internal.metrics.model.FpsDropMetric;
@@ -237,6 +237,7 @@ public class ActivityLifecycleMetrics {
             }
         }
 
+        @NonNull
         @Override
         public String toString() {
             return "ActivityLifecycleMetric{" +
@@ -250,7 +251,7 @@ public class ActivityLifecycleMetrics {
         }
     }
 
-    public static class MetricWindowCallbackWrapper extends WindowCallbackWrapper {
+    public static class MetricWindowCallbackWrapper extends WindowCallbackWrapperAndroidx {
 
         private ActivityLifecycleMetric activityLifecycleMetric;
 

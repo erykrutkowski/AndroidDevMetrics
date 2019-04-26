@@ -1,7 +1,7 @@
 package com.frogermcs.androiddevmetrics.internal;
 
-import com.frogermcs.androiddevmetrics.internal.metrics.model.InitMetric;
 import com.frogermcs.androiddevmetrics.AndroidDevMetrics;
+import com.frogermcs.androiddevmetrics.internal.metrics.model.InitMetric;
 
 import java.util.ArrayList;
 import java.util.List;

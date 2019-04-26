@@ -22,10 +22,10 @@ class AndroidDevMetricsPlugin: Plugin<Project> {
             }
 
             //TODO can we do it as closure?
-            project.dependencies.add("releaseCompile", "com.frogermcs.androiddevmetrics:androiddevmetrics-runtime-noop:0.7")
-            project.dependencies.add("debugCompile", "com.frogermcs.androiddevmetrics:androiddevmetrics-runtime:0.7")
-            project.dependencies.add("debugCompile", "org.aspectj:aspectjrt:1.8.8")
-            project.dependencies.add("compile", "com.android.support:support-v4:26.1.0")
+            project.dependencies.add("releaseImplementation", "com.frogermcs.androiddevmetrics:androiddevmetrics-runtime-noop:0.7")
+            project.dependencies.add("debugImplementation", "com.frogermcs.androiddevmetrics:androiddevmetrics-runtime:0.7")
+            project.dependencies.add("debugImplementation", "org.aspectj:aspectjrt:1.9.3")
+            project.dependencies.add("implementation", "androidx.legacy:legacy-support-v4:1.0.0")
 
             val log = project.logger
             val variants: DomainObjectSet<BaseVariant>
@@ -42,7 +42,7 @@ class AndroidDevMetricsPlugin: Plugin<Project> {
                 }
 
                 val javaCompiler = variant.javaCompileProvider.get() as AbstractCompile
-                javaCompiler.doLast({
+                javaCompiler.doLast {
                     val args = arrayOf(
                             "-showWeaveInfo",
                             "-1.5",
@@ -65,7 +65,7 @@ class AndroidDevMetricsPlugin: Plugin<Project> {
                             IMessage.DEBUG -> log.debug(it.message, it.thrown)
                         }
                     }
-                })
+                }
             }
         }
     }

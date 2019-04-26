@@ -13,6 +13,7 @@ import com.frogermcs.androiddevmetrics.internal.ui.fragment.ActivitiesMetricsFra
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Miroslaw Stanek on 30.01.2016.
@@ -121,8 +122,8 @@ public class ExpandableActivitiesMetricsListAdapter extends BaseExpandableListAd
 
         public HeaderViewHolder(View view) {
             this.root = view;
-            tvActivityName = (TextView) view.findViewById(com.frogermcs.androiddevmetrics.R.id.tvActivityName);
-            tvActivityDescription = (TextView) view.findViewById(com.frogermcs.androiddevmetrics.R.id.tvActivityDescription);
+            tvActivityName = view.findViewById(com.frogermcs.androiddevmetrics.R.id.tvActivityName);
+            tvActivityDescription = view.findViewById(com.frogermcs.androiddevmetrics.R.id.tvActivityDescription);
         }
 
         public void bindView(ActivityMetricDescription activityMetricDescription) {
@@ -131,7 +132,7 @@ public class ExpandableActivitiesMetricsListAdapter extends BaseExpandableListAd
             if (activityMetricDescription.frameDropsCount == 0) {
                 frameDrops = "No frame drops";
             } else {
-                frameDrops = String.format("Dropped frames %d", activityMetricDescription.frameDropsCount);
+                frameDrops = String.format(Locale.ENGLISH, "Dropped frames %d", activityMetricDescription.frameDropsCount);
             }
 
             String subtitle = String.format("%s%s | %s",
@@ -154,14 +155,14 @@ public class ExpandableActivitiesMetricsListAdapter extends BaseExpandableListAd
         Button btnScheduleMethodTracing;
 
         public DescriptionViewHolder(View view) {
-            tvInstancesCount = (TextView) view.findViewById(R.id.tvInstancesCount);
-            tvFrameDrops = (TextView) view.findViewById(R.id.tvFrameDrops);
-            tvOnCreateTime = (TextView) view.findViewById(R.id.tvOnCreateTime);
-            tvOnStartTime = (TextView) view.findViewById(R.id.tvOnStartTime);
-            tvOnResumeTime = (TextView) view.findViewById(R.id.tvOnResumeTime);
-            tvOnLayoutTime = (TextView) view.findViewById(R.id.tvOnLayoutTime);
-            tvOverallTime = (TextView) view.findViewById(R.id.tvOverallTime);
-            btnScheduleMethodTracing = (Button) view.findViewById(R.id.btnScheduleMethodTracing);
+            tvInstancesCount = view.findViewById(R.id.tvInstancesCount);
+            tvFrameDrops = view.findViewById(R.id.tvFrameDrops);
+            tvOnCreateTime = view.findViewById(R.id.tvOnCreateTime);
+            tvOnStartTime = view.findViewById(R.id.tvOnStartTime);
+            tvOnResumeTime = view.findViewById(R.id.tvOnResumeTime);
+            tvOnLayoutTime = view.findViewById(R.id.tvOnLayoutTime);
+            tvOverallTime = view.findViewById(R.id.tvOverallTime);
+            btnScheduleMethodTracing = view.findViewById(R.id.btnScheduleMethodTracing);
             btnScheduleMethodTracing.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -175,7 +176,7 @@ public class ExpandableActivitiesMetricsListAdapter extends BaseExpandableListAd
             if (activityMetricDescription.frameDropsCount == 0) {
                 tvFrameDrops.setText("No frame drops!");
             } else {
-                tvFrameDrops.setText(String.format("%d/%.2f fps", activityMetricDescription.frameDropsCount, activityMetricDescription.getAverageFps()));
+                tvFrameDrops.setText(String.format(Locale.ENGLISH, "%d/%.2f fps", activityMetricDescription.frameDropsCount, activityMetricDescription.getAverageFps()));
             }
             tvOverallTime.setText(activityMetricDescription.getOverallTimeMillis() + "ms");
             tvOnCreateTime.setText(activityMetricDescription.activityCreateMillis + "ms");

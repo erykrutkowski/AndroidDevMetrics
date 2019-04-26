@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <LinearLayout
@@ -41,14 +42,14 @@
                 style="@style/AdmEntryValueStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5" />
+                tools:text="5" />
 
             <TextView
                 android:id="@+id/tvFrameDrops"
                 style="@style/AdmEntryValueStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10 / 35.5fps" />
+                tools:text="10 / 35.5fps" />
         </LinearLayout>
     </LinearLayout>
 
@@ -117,28 +118,28 @@
                 style="@style/AdmEntryValueStyle.NoMargin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="230ms" />
+                tools:text="230ms" />
 
             <TextView
                 android:id="@+id/tvOnStartTime"
                 style="@style/AdmEntryValueStyle.NoMargin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="130ms" />
+                tools:text="130ms" />
 
             <TextView
                 android:id="@+id/tvOnResumeTime"
                 style="@style/AdmEntryValueStyle.NoMargin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="230ms" />
+                tools:text="230ms" />
 
             <TextView
                 android:id="@+id/tvOnLayoutTime"
                 style="@style/AdmEntryValueStyle.NoMargin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="230ms" />
+                tools:text="230ms" />
 
             <TextView
                 android:id="@+id/tvOverallTime"
@@ -146,7 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="230ms" />
+                tools:text="230ms" />
 
         </LinearLayout>
     </LinearLayout>

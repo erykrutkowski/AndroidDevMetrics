@@ -1,5 +1,7 @@
 package com.frogermcs.androiddevmetrics.internal.metrics.model;
 
+import androidx.annotation.NonNull;
+
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -48,7 +50,7 @@ public class InitMetric {
         }
 
         if (instanceNo > 0) {
-            return className + "#" + Integer.toString(instanceNo);
+            return className + "#" + instanceNo;
         }
         return className;
     }
@@ -57,20 +59,13 @@ public class InitMetric {
         return threadName;
     }
 
+    @NonNull
     @Override
     public String toString() {
-        if (Proxy.isProxyClass(cls)) {
-            return "InitMetric{" +
-                    "initTimeMillis=" + initTimeMillis +
-                    ", cls=" + Arrays.asList(cls.getInterfaces()) +
-                    ", args=" + args +
-                    '}';
-        } else {
-            return "InitMetric{" +
-                    "initTimeMillis=" + initTimeMillis +
-                    ", cls=" + cls.getName() +
-                    ", args=" + args +
-                    '}';
-        }
+        return "InitMetric{" +
+                "initTimeMillis=" + initTimeMillis +
+                ", cls=" + (Proxy.isProxyClass(cls) ? Arrays.asList(cls.getInterfaces()) : cls.getName()) +
+                ", args=" + args +
+                '}';
     }
 }

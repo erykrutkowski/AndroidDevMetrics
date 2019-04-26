@@ -1,12 +1,13 @@
 package com.frogermcs.androiddevmetrics.internal.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.frogermcs.androiddevmetrics.R;
 import com.frogermcs.androiddevmetrics.internal.ui.fragment.ActivitiesMetricsFragment;
@@ -28,9 +29,9 @@ public class MetricsActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adm_activity_metrics);
-        btnActivities = (Button) findViewById(R.id.btnActivities);
-        btnDagger2 = (Button) findViewById(R.id.btnDagger2);
-        vpMetrics = (ViewPager) findViewById(R.id.vpMetrics);
+        btnActivities = findViewById(R.id.btnActivities);
+        btnDagger2 = findViewById(R.id.btnDagger2);
+        vpMetrics = findViewById(R.id.vpMetrics);
 
         activitiesMetricsFragment = new ActivitiesMetricsFragment();
         dagger2MetricsFragment = new Dagger2MetricsFragment();

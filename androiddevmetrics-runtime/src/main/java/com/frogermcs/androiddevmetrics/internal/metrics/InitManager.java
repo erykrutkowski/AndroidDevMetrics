@@ -37,13 +37,12 @@ public class InitManager {
         String simpleName = initializedClass.getName();
         if (!initializedMetrics.containsKey(simpleName)) {
             putInitMetric(simpleName, initMetric);
-            int argsLength = args.length;
-            for (int i = 0; i < argsLength; i++) {
-                if (args[i] == null) continue;
-                String argClassSimpleName = args[i].getClass().getName();
-                InitMetric argMethics = initializedMetrics.get(argClassSimpleName);
-                if (argMethics != null) {
-                    initMetric.args.add(argMethics);
+            for (Object arg : args) {
+                if (arg == null) continue;
+                String argClassSimpleName = arg.getClass().getName();
+                InitMetric argMetrics = initializedMetrics.get(argClassSimpleName);
+                if (argMetrics != null) {
+                    initMetric.args.add(argMetrics);
                     initializedMetrics.remove(argClassSimpleName);
                 }
             }

@@ -2,11 +2,10 @@ package com.frogermcs.androiddevmetrics.internal;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -77,7 +76,7 @@ public class MethodsTracingManager {
         sharedPreferences.edit()
                 .clear()
                 .putStringSet(PREFS_KEY_SCHEDULED_METHODS, scheduledMethods)
-                .commit();
+                .apply();
     }
 
     public boolean shouldTraceMethod(String activityName, String method) {

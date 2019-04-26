@@ -1,5 +1,7 @@
 package com.frogermcs.androiddevmetrics.internal.metrics.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
 
 /**
@@ -32,6 +34,7 @@ public class FpsDropMetric {
         return fpsDropMetric;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "FpsDropMetric{" +
